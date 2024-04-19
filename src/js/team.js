@@ -25,4 +25,3 @@ export default class Team {
     return Array.from(this.members);
   }
 }
-
