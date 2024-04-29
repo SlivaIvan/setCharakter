@@ -1,10 +1,8 @@
-import Team from './team';
-import Character from './character';
+import Magician from './magician';
+import Daemon from './daemon';
 
-const archerAlaster = new Character('Alaster', 'archer');
-const archerAlfi = new Character('Alfi', 'archer');
+const ivan = new Magician('Ivan');
+const alex = new Daemon('Alex');
 
-const teamIvan = new Team();
-
-teamIvan.add(archerAlaster);
-teamIvan.add(archerAlfi);
+ivan.attack(1);
+alex.attack(2);

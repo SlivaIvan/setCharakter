@@ -1,26 +1,42 @@
 import Character from '../character';
-import Team from '../team';
 
-describe('Team', () => {
-  it('should add a character to the team', () => {
-    const team = new Team();
-    const character = new Character('Den');
-    team.add(character);
-    expect(team.toArray()).toEqual([character]);
-  });
+describe('Character', () => {
+  describe('constructor', () => {
+    it('should initialize a character with default values', () => {
+      const character = new Character('Warrior');
+      expect(character.baseAttack).toBe(100);
+      expect(character.type).toBe('Warrior');
+      expect(character.stone).toBe(false);
+      expect(character.finalAttack).toBe(null);
+      expect(character.arrCoefficient).toEqual([1.0, 0.9, 0.8, 0.7, 0.6]);
+      character.attack = 2;
+      expect(character.attack).toBe(90);
+    });
+    it('testing the characters attack', () => {
+      const character = new Character('Warrior');
+      character.attack = 2;
+      expect(character.attack).toBe(90);
+    });
+    it('testing the characters stoned', () => {
+      const character = new Character('Warrior');
+      character.stoned = true;
+      expect(character.stoned).toBe(true);
+    });
 
-  it('should not allow adding the same character twice', () => {
-    const team = new Team();
-    const character = new Character('Den');
-    team.add(character);
-    expect(() => team.add(character)).toThrow('Ошибка, такой персонаж уже есть');
-  });
+    it('testing the characters stoned', () => {
+      const character = new Character('Warrior');
+      expect(character.stoned).toBe(false);
+    });
 
-  it('should add all characters to the team', () => {
-    const team = new Team();
-    const character1 = new Character('Den');
-    const character2 = new Character('Anya');
-    team.addAll(character1, character2);
-    expect(team.toArray()).toEqual([character1, character2]);
+    it('testing the characters stoned', () => {
+      const character = new Character('Warrior');
+      expect(character.attack).toBe(null);
+    });
+
+    it('testing the characters stoned', () => {
+      const character = new Character('Warrior');
+      character.attack = 'a';
+      expect(character.attack).toBe(null);
+    });
   });
 });
